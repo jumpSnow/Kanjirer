@@ -24,14 +24,14 @@ class Jisho:
 
     @property
     @clean
-    def strokes(self):
+    def strokes(self) -> str:
         res = self._soup.find("div", {"class": "kanji-details__stroke_count"})
         self._strokes = res.getText()
         return self._strokes
 
     @property
     @clean
-    def kun_readings(self):
+    def kun_readings(self) -> str:  # todo: integrate kun_readings with on_readings
         parent = self._soup.find("div", {"class": "kanji-details__main-readings"})
         res = parent.findChildren("dd", {"class": "kanji-details__main-readings-list"})
         self._kun_readings = res[0].getText()
@@ -39,7 +39,7 @@ class Jisho:
 
     @property
     @clean
-    def on_readings(self):
+    def on_readings(self) -> str:
         parent = self._soup.find("div", {"class": "kanji-details__main-readings"})
         res = parent.findChildren("dd", {"class": "kanji-details__main-readings-list"})
         self._on_readings = res[1].getText()
@@ -47,7 +47,7 @@ class Jisho:
 
     @property
     @clean
-    def on_readings_compounds(self):
+    def on_readings_compounds(self) -> list:  # todo: integrate on_readings_compounds with kun_readings_compounds
         parent = self._soup.find("div", {"class": "row compounds"})
         res = parent.findChildren("div", {"class": "small-12 large-6 columns"})
         self._on_readings_compounds = res[0].getText().split("\n\n\n")
@@ -55,7 +55,7 @@ class Jisho:
 
     @property
     @clean
-    def kun_readings_compounds(self):
+    def kun_readings_compounds(self) -> list:
         parent = self._soup.find("div", {"class": "row compounds"})
         res = parent.findChildren("div", {"class": "small-12 large-6 columns"})
         self._kun_readings_compounds = res[1].getText().split("\n\n\n")
@@ -63,35 +63,35 @@ class Jisho:
 
     @property
     @clean
-    def radicals(self):
+    def radicals(self) -> str:
         res = self._soup.findAll("dl", {"class": "dictionary_entry on_yomi"})[0]
         self._radicals = res.getText()
         return self._radicals
 
     @property
     @clean
-    def parts(self):
+    def parts(self) -> str:
         res = self._soup.findAll("dl", {"class": "dictionary_entry on_yomi"})[1]
         self._parts = res.getText()
         return self._parts
 
     @property
     @clean
-    def grade(self):
+    def grade(self) -> str:
         res = self._soup.find("div", {"class": "grade"})
         self._grade = res.getText()
         return self._grade
 
     @property
     @clean
-    def jlpt(self):
+    def jlpt(self) -> str:
         res = self._soup.find("div", {"class": "jlpt"})
         self._jlpt = res.getText()
         return self._jlpt
 
     @property
     @clean
-    def frequency(self):
+    def frequency(self) -> str:
         res = self._soup.find("div", {"class": "frequency"})
         self._frequency = res.getText()
         return self._frequency
