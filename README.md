@@ -1,11 +1,11 @@
 # Kanjirer
 
-##Build
+## Build
 ```
 pip install requirements.txt
 ```
 
-##Run
+## Run
 ```
 python3 test.py
 ```
