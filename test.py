@@ -1,20 +1,6 @@
-from Jisho.jisho import Jisho
+import re
 
-char = "女"
-test = Jisho(char)
+a = "1 3 4 test"
 
-for strokes, frequency, grade, jlpt, parts, radicals, on_readings, kun_readings, on_readings_compounds, kun_readings_compounds in test.data:
-    print("strokes:", strokes)
-    print("frequency: ", frequency)
-    print("grade: ", grade)
-    print("jlpt: ", jlpt)
-    print("parts: ", parts)
-    print("radicals: ", radicals)
-    print("on_readings: ", on_readings)
-    print("kun_readings: ", kun_readings)
-    print("on_readings_compounds: ", on_readings_compounds)
-    print("kun_readings_compounds: ", kun_readings_compounds)
-
-
-
-
+res = re.match(r"(\d+) 3 4", a)
+print(res.group(1))
