@@ -2,7 +2,6 @@ import requests
 from bs4 import BeautifulSoup
 from utils.decorator import clean
 import re
-import asyncio
 
 
 class Jisho:

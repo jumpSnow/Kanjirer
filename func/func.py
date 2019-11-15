@@ -2,8 +2,8 @@ import csv
 import os
 
 
-def write_csv(cell):
-    csv_file = "./result/jisho_result.csv"
+def write_csv(cell, csv_file):
+    # csv_file = "./result/jisho_result.csv"
     csv_columns = cell.keys()
     if_csv_exists = os.path.exists(csv_file)
     with open(csv_file, 'a+') as f:
