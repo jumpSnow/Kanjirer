@@ -30,7 +30,7 @@ class Wanikani:
         params = {"authenticity_token": self.token,
                   "utf8": "✓",
                   "user[login]": "w651467780@gmail.com",
-                  "user[password]": "WMD19970211",
+                  "user[password]": "",
                   "user[remember_me]": 0
                   }
         session = requests.Session()
